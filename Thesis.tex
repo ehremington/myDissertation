@@ -1,0 +1,198 @@
+%
+% Last Updated July 18, 2019
+%
+
+\documentclass[phd, reqno]{uab-thesis}   %UAB Thesis document class -- because-
+
+
+% subcaption package for subfigures
+\usepackage{caption}
+\captionsetup{width=.95\linewidth}
+\usepackage{subcaption}
+
+% graphicsx package for figures
+\usepackage{graphicx}
+
+% booktabs for improved tables
+\usepackage{booktabs}
+
+% to import chapters and sections from separate files
+\usepackage{import}
+
+% for \textdegree for degree symbol
+\usepackage{textcomp} 
+
+% add bib resource file
+\addbibresource{library.bib}
+
+% ignore problematic bib file fields
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldset=abstract, null]
+      \step[fieldset=isbn, null]
+      \step[fieldset=month, null]
+    }
+  }
+}
+
+% to get last names first in the bibliography
+\DeclareNameAlias{author}{last-first}
+\DeclareNameAlias{editor}{last-first}
+\DeclareNameAlias{translator}{last-first}
+
+% float package for figure placement
+\usepackage{float}
+
+% To Remove later
+\usepackage[normalem]{ulem} % for crossed out text during drafting
+\usepackage{amsfonts}
+\usepackage[mathscr]{eucal}
+
+
+%***************************************												
+%************DOCUMENT BEGINS************
+%***************************************
+
+
+\begin{document}
+\title{Synthesis and Ion Conducting Properties of Barium Zirconate Based Thin Films}
+\author{Eric H. Remington}
+\thesiscommittee{\MakeUppercase{Renato P. Camata, COMMITTEE CHAIR}\\ \MakeUppercase{S. Aaron Catledge}\\ \MakeUppercase{Amber L. Genau}\\ \MakeUppercase{David J. Hilton}\\ \MakeUppercase{Gregg M. Janowski}\\ \MakeUppercase{Mary Ellen Zvanut}}
+\thesisyear{2019}
+
+\maketitlepage
+\copyrightpage
+
+% for left align with half inch indent
+\raggedright\parindent=.5in
+
+\begin{abstract}{Physics}
+\keywords{ion conduction, thin film, pulsed laser deposition, impedance spectroscopy}
+Solid oxide fuel cells are electrochemical systems that convert chemical energy into electricity using ion-conducting oxide ceramics as electrolytes. These devices are widely considered as an important technology in addressing the future demands for low-carbon electrical power generation. Oxide ceramics in which the active ionic species is the proton ion (H$^{+}$), are of particular current interest because they exhibit ionic conductivities that are two-to-three orders of magnitude higher than ceramics that rely on transport of oxide ions (O$^{2-}$). Accordingly, these so-called protonic oxide conductors are being investigated vigorously in a variety of bulk and thin film configurations. A major goal of these efforts is to elucidate the ionic conduction processes that enable the high protonic conductivity observed in these materials in the 500\textdegree-750\textdegree C temperature range.
+
+This dissertation seeks to contribute to this effort by investigating the ionic transport properties of thin films of the perovskite barium zirconate doped with trivalent cations. Doped barium zirconate has drawn considerable attention recently not only due to its high protonic conductivity but also because of its high chemical stability in typical fuel cell operating environments. Our focus is to study the protonic conductivity of barium zirconate thin films doped with the little explored cations Gd$^{3+}$ (gadolinium) and Yb$^{3+}$ (ytterbium). In addition, we also seek to investigate the effect of microstructure in the protonic conduction of these thin films doped with Gd and Yb.
+\end{abstract}
+
+
+\begin{dedication}
+To God, from whom all blessings flow, who redeemed and saved me,
+
+To my wife, Emily, and my children, Sara Ellen and Henry, who have been with me every step of the way,
+
+To my parents, Hank and Elizabeth Remington, and to my parents-in-law, Bob and the late Jane Ellen Mark, who supported me and believed in me,
+
+To my friends and neighbors, the Weirs and Lambuths and many others, who carried me when I could not stand, 
+
+To the communities of Faith Presbyterian Church and Red Mountain Church of Birmingham, AL and Second Presbyterian Church of Yazoo City, MS, who provided so much encouragement over all of these years. 
+
+\end{dedication}
+%
+\begin{acknowledgments}
+I would like to acknowledge and thank my mentor Dr. Renato Camata for his guidance and resources over so many years of this project. I will always be in debt to his investment of time and energy in me and in this project. 
+
+I would especially like to thank the members of my PhD committee, each of whom at various times has generously offered their time, laboratories and open office doors to help me and give me encouragement when I needed it. Their service to me exceeded what was necessary and I am deeply appreciative of it. 
+
+I would like to also sincerely thank the other faculty and staff of the Physics department who offered assistance and laboratory equipment for various experiments as well as taught interesting classes, especially Dr. Yogesh Vohra, Dr. Sergey Mirov, Dr. Paul Baker, and Dr. Ryoichi Kawai.
+
+I would also not have been writing this without the generous support from the other graduate students and members of our lab group, Dr. Zack Lindsey, Alex Skinner, Sumner Harris, Matthew Rhoades and Ozar Gafarov. REU student Sabrina Siu deserves special thanks for her assistance with experiments. The graduate school experience would not have been what it was without discussion and chess with Kyle Bentley, Dr. Ketan Goyal, Dr. Jamin Johnston, and Dr. Nate Brady. 
+\end{acknowledgments}
+%
+\tableofcontents
+
+%\include{notation}
+
+% due to my captions being so long and causing spacing problems i am changing the interlinepenalty temporarily with this
+{\countdef\interlinepenalty255\singlespacing\setlength{\parskip}{12pt}
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+}
+
+% adds the work chapter to the toc in the right spot above the list of chapters
+\addtocontents{toc}{\bigskip\noindent CHAPTER\par\medskip}
+
+\mainmatter
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+
+% Introduction
+\chapter{Introduction}
+\label{ch:intro}
+\import{Introduction/}{introduction}
+
+% Chapters
+
+\chapter{Background and Theory}
+\label{ch:background}
+\import{Background/}{BZO}
+\import{Background/}{Dopants}
+\import{Background/}{ProtonConduction}
+\import{Background/}{ProtonDopantInteraction}
+\import{Background/}{GrainVGrainBoundary}
+\import{Background/}{Applications}
+
+\chapter{Experimental Methods and Techniques}
+\label{ch:methods}
+\import{Methods/}{targetProcess}
+\import{Methods/}{PLD}
+\import{Methods/}{XRD}
+\import{Methods/}{EDX}
+\import{Methods/}{EIS}
+
+\chapter{Doped Barium Zirconate in Bulk Form}
+\label{ch:bulk}
+\import{Samples_Bulk/}{Bulk_Samples_Synthesis.tex}
+\import{Samples_Bulk/}{Electrical_Characterization.tex}
+\import{Samples_Bulk/}{Effect_Gas_Environment.tex}
+\import{Samples_Bulk/}{Effect_Dopant.tex}
+
+\chapter{Doped Barium Zirconate Thin Films}
+\label{ch:films}
+\import{Samples_Thin_Films/}{Introduction.tex}
+\import{Samples_Thin_Films/}{Thin_Film_Synthesis.tex}
+\import{Samples_Thin_Films/}{Chemical_Analysis.tex}
+\import{Samples_Thin_Films/}{Thickness_AND_Index_of_Refraction.tex}
+\import{Samples_Thin_Films/}{Structural_Characterization.tex}
+\import{Samples_Thin_Films/}{Electrical_Properties.tex}
+
+
+
+% Conclusion
+\chapter{Conclusion}
+\label{ch:conclusions}
+\import{Conclusion/}{conclusion}
+
+%%% References
+{\setlength\bibitemsep{12pt}\singlespacing\printbibliography[title={LIST OF REFERENCES\bigskip}]}
+\addcontentsline{toc}{chapter}{LIST OF REFERENCES}
+
+%%% Appendix
+%% adds the word appendices to the toc above the list of appdx chapters
+\addcontentsline{toc}{chapter}{APPENDICES} 
+
+%% this makes the appendix chapters appear as sections in the toc
+\addtocontents{toc}{\protect\setlength{\cftchapindent}{2.5em}}
+
+%% keep figures in appdx out of list of figures
+\captionsetup{list=no}
+
+\appendix
+%% now add chapters
+\chapter{\MakeUppercase{Derivation of Brick Layer Model}}
+\import{Appendix/}{Appendix_A}
+\chapter{\MakeUppercase{Magnetron Sputtering Method for Electrical Contact Deposition}}
+\import{Appendix/}{Appendix_B}
+\chapter{\MakeUppercase{Procedure for Chemical Synthesis of Gadolinium-doped Barium Zirconate}}
+\import{Appendix/}{Appendix_C}
+
+
+
+
+\end{document}
+
